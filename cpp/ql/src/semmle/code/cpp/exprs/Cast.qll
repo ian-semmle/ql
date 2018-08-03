@@ -136,7 +136,7 @@ private predicate isPointerToMemberOrNullPointer(Type type) {
  */
 class ArithmeticConversion extends Cast {
   ArithmeticConversion() {
-    conversionkinds(this, 0) and
+    conversionkinds(unresolveElement(this), 0) and
     isArithmeticOrEnum(getType().getUnspecifiedType()) and
     isArithmeticOrEnum(getExpr().getType().getUnspecifiedType())
   }
@@ -210,7 +210,7 @@ class IntegralToFloatingPointConversion extends ArithmeticConversion {
  */
 class PointerConversion extends Cast {
   PointerConversion() {
-    conversionkinds(this, 0) and
+    conversionkinds(unresolveElement(this), 0) and
     isPointerOrNullPointer(getType().getUnspecifiedType()) and
     isPointerOrNullPointer(getExpr().getType().getUnspecifiedType())
   }
@@ -228,7 +228,7 @@ class PointerConversion extends Cast {
  */
 class PointerToMemberConversion extends Cast {
   PointerToMemberConversion() {
-    conversionkinds(this, 0) and
+    conversionkinds(unresolveElement(this), 0) and
     exists(Type fromType, Type toType |
       fromType = getExpr().getType().getUnspecifiedType() and
       toType = getType().getUnspecifiedType() and
@@ -253,7 +253,7 @@ class PointerToMemberConversion extends Cast {
  */
 class PointerToIntegralConversion extends Cast {
   PointerToIntegralConversion() {
-    conversionkinds(this, 0) and
+    conversionkinds(unresolveElement(this), 0) and
     isIntegralOrEnum(getType().getUnspecifiedType()) and
     isPointerOrNullPointer(getExpr().getType().getUnspecifiedType())
   }
@@ -268,7 +268,7 @@ class PointerToIntegralConversion extends Cast {
  */
 class IntegralToPointerConversion extends Cast {
   IntegralToPointerConversion() {
-    conversionkinds(this, 0) and
+    conversionkinds(unresolveElement(this), 0) and
     isPointerOrNullPointer(getType().getUnspecifiedType()) and
     isIntegralOrEnum(getExpr().getType().getUnspecifiedType())
   }
@@ -284,7 +284,7 @@ class IntegralToPointerConversion extends Cast {
  */
 class BoolConversion extends Cast {
   BoolConversion() {
-    conversionkinds(this, 1)
+    conversionkinds(unresolveElement(this), 1)
   }
 
   override string getSemanticConversionString() {
@@ -301,7 +301,7 @@ class BoolConversion extends Cast {
  */
 class InheritanceConversion extends Cast {
   InheritanceConversion() {
-    conversionkinds(this, 2) or conversionkinds(this, 3)
+    conversionkinds(unresolveElement(this), 2) or conversionkinds(unresolveElement(this), 3)
   }
 
   /**
@@ -353,7 +353,7 @@ private Class getConversionClass(Expr expr) {
  */
 class BaseClassConversion extends InheritanceConversion {
   BaseClassConversion() {
-    conversionkinds(this, 2)
+    conversionkinds(unresolveElement(this), 2)
   }
 
   override string getSemanticConversionString() {
@@ -382,7 +382,7 @@ class BaseClassConversion extends InheritanceConversion {
  */
 class DerivedClassConversion extends InheritanceConversion {
   DerivedClassConversion() {
-    conversionkinds(this, 3)
+    conversionkinds(unresolveElement(this), 3)
   }
 
   override string getSemanticConversionString() {
@@ -404,7 +404,7 @@ class DerivedClassConversion extends InheritanceConversion {
  */
 class PointerToMemberBaseClassConversion extends Cast {
   PointerToMemberBaseClassConversion() {
-    conversionkinds(this, 4)
+    conversionkinds(unresolveElement(this), 4)
   }
 
   override string getSemanticConversionString() {
@@ -418,7 +418,7 @@ class PointerToMemberBaseClassConversion extends Cast {
  */
 class PointerToMemberDerivedClassConversion extends Cast {
   PointerToMemberDerivedClassConversion() {
-    conversionkinds(this, 5)
+    conversionkinds(unresolveElement(this), 5)
   }
 
   override string getSemanticConversionString() {
@@ -433,7 +433,7 @@ class PointerToMemberDerivedClassConversion extends Cast {
  */
 class GlvalueConversion extends Cast {
   GlvalueConversion() {
-    conversionkinds(this, 6)
+    conversionkinds(unresolveElement(this), 6)
   }
 
   override string getSemanticConversionString() {
@@ -457,7 +457,7 @@ class GlvalueConversion extends Cast {
  */
 class PrvalueAdjustmentConversion extends Cast {
   PrvalueAdjustmentConversion() {
-    conversionkinds(this, 7)
+    conversionkinds(unresolveElement(this), 7)
   }
 
   override string getSemanticConversionString() {
@@ -489,7 +489,7 @@ class UuidofOperator extends Expr, @uuidof {
 
   /** Gets the contained type. */
   Type getTypeOperand() {
-    uuidof_bind(this, result)
+    uuidof_bind(unresolveElement(this), unresolveElement(result))
   }
 }
 
@@ -510,7 +510,7 @@ class TypeidOperator extends Expr, @type_id {
    * printf("the type of ptr is: %s\n", typeid(ptr).name);
    * ```
    */
-  Type getResultType() { typeid_bind(this,unresolve(result)) }
+  Type getResultType() { typeid_bind(unresolveElement(this),unresolveElement(result)) }
 
   /**
    * DEPRECATED: Use `getResultType()` instead.
@@ -591,10 +591,10 @@ class SizeofExprOperator extends SizeofOperator {
  * A C/C++ sizeof expression whose operand is a type name.
  */
 class SizeofTypeOperator extends SizeofOperator {
-  SizeofTypeOperator() { sizeof_bind(this,_) }
+  SizeofTypeOperator() { sizeof_bind(unresolveElement(this),_) }
 
   /** Gets the contained type. */
-  Type getTypeOperand() { sizeof_bind(this,unresolve(result)) }
+  Type getTypeOperand() { sizeof_bind(unresolveElement(this),unresolveElement(result)) }
 
   /**
    * DEPRECATED: Use `getTypeOperand()` instead
@@ -643,10 +643,10 @@ class AlignofExprOperator extends AlignofOperator {
  * A C++11 `alignof` expression whose operand is a type name.
  */
 class AlignofTypeOperator extends AlignofOperator {
-  AlignofTypeOperator() { sizeof_bind(this,_) }
+  AlignofTypeOperator() { sizeof_bind(unresolveElement(this),_) }
 
   /** Gets the contained type. */
-  Type getTypeOperand() { sizeof_bind(this,unresolve(result)) }
+  Type getTypeOperand() { sizeof_bind(unresolveElement(this),unresolveElement(result)) }
 
   /**
    * DEPRECATED: Use `getTypeOperand()` instead.
