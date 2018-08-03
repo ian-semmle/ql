@@ -1740,15 +1740,15 @@
 | ir.cpp:708:5:708:11 | CallMin(int, int) -> int | 5 | 3 | 1 | y |  |  | prvalue(load): int | ir.cpp:709:17:709:17 |
 | ir.cpp:713:8:713:8 | Outer<long>::operator=(Outer<long> &&) -> Outer<long> & | 0 | -1 | 0 | operator= |  |  |  | ir.cpp:713:8:713:8 |
 | ir.cpp:713:8:713:8 | Outer<long>::operator=(const Outer<long> &) -> Outer<long> & | 0 | -1 | 0 | operator= |  |  |  | ir.cpp:713:8:713:8 |
+| ir.cpp:715:12:715:12 | Outer<long>::Func<void *, char>(void *, char) -> long | 0 | -1 | 0 | Func |  |  |  | ir.cpp:715:12:715:12 |
+| ir.cpp:715:12:715:12 | Outer<long>::Func<void *, char>(void *, char) -> long | 1 | 0 | 0 | { ... } |  |  |  | ir.cpp:715:27:717:3 |
+| ir.cpp:715:12:715:12 | Outer<long>::Func<void *, char>(void *, char) -> long | 2 | 1 | 0 | return ... |  |  |  | ir.cpp:716:5:716:15 |
+| ir.cpp:715:12:715:12 | Outer<long>::Func<void *, char>(void *, char) -> long | 3 | 2 | 0 | 0 |  | =0 | prvalue: long | ir.cpp:716:12:716:14 |
 | ir.cpp:715:12:715:15 | Outer<T>::Func<U, V>(U, V) -> T | 0 | -1 | 0 | Func |  |  |  | ir.cpp:715:12:715:15 |
 | ir.cpp:715:12:715:15 | Outer<T>::Func<U, V>(U, V) -> T | 1 | 0 | 0 | { ... } |  |  |  | ir.cpp:715:27:717:3 |
 | ir.cpp:715:12:715:15 | Outer<T>::Func<U, V>(U, V) -> T | 2 | 1 | 0 | return ... |  |  |  | ir.cpp:716:5:716:15 |
 | ir.cpp:715:12:715:15 | Outer<T>::Func<U, V>(U, V) -> T | 3 | 2 | 0 | 0 |  | =0 | prvalue: T | ir.cpp:716:12:716:14 |
 | ir.cpp:715:12:715:15 | Outer<long>::Func<U, V>(U, V) -> long | 0 | -1 | 0 | Func |  |  |  | ir.cpp:715:12:715:15 |
-| ir.cpp:715:12:715:15 | Outer<long>::Func<void *, char>(void *, char) -> long | 0 | -1 | 0 | Func |  |  |  | ir.cpp:715:12:715:15 |
-| ir.cpp:715:12:715:15 | Outer<long>::Func<void *, char>(void *, char) -> long | 1 | 0 | 0 | { ... } |  |  |  | ir.cpp:715:27:717:3 |
-| ir.cpp:715:12:715:15 | Outer<long>::Func<void *, char>(void *, char) -> long | 2 | 1 | 0 | return ... |  |  |  | ir.cpp:716:5:716:15 |
-| ir.cpp:715:12:715:15 | Outer<long>::Func<void *, char>(void *, char) -> long | 3 | 2 | 0 | 0 |  | =0 | prvalue: long | ir.cpp:716:12:716:14 |
 | ir.cpp:720:8:720:29 | CallNestedTemplateFunc() -> double | 0 | -1 | 0 | CallNestedTemplateFunc |  |  |  | ir.cpp:720:8:720:29 |
 | ir.cpp:720:8:720:29 | CallNestedTemplateFunc() -> double | 1 | 0 | 0 | { ... } |  |  |  | ir.cpp:720:33:722:1 |
 | ir.cpp:720:8:720:29 | CallNestedTemplateFunc() -> double | 2 | 1 | 0 | return ... |  |  |  | ir.cpp:721:3:721:54 |

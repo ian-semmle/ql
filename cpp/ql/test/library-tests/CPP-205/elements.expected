@@ -12,8 +12,6 @@
 | CPP-205.cpp:3:3:3:33 | declaration |
 | CPP-205.cpp:3:3:3:33 | declaration |
 | CPP-205.cpp:3:15:3:15 | declaration of y |
-| CPP-205.cpp:3:15:3:15 | declaration of y |
-| CPP-205.cpp:3:15:3:15 | y |
 | CPP-205.cpp:3:15:3:15 | y |
 | CPP-205.cpp:3:17:3:31 | 5 |
 | CPP-205.cpp:4:3:4:11 | return ... |
@@ -28,3 +26,4 @@
 | CPP-205.cpp:8:13:8:13 | 0 |
 | file://:0:0:0:0 | operator= |
 | file://:0:0:0:0 | operator= |
+| file://:0:0:0:0 | y |

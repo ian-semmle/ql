@@ -13,6 +13,7 @@
 | test.cpp:5:29:5:29 | e |
 | test.cpp:6:26:6:26 | p#0 |
 | test.cpp:6:29:6:31 | p#1 |
+| test.cpp:7:20:7:20 | f |
 | test.cpp:7:20:7:26 | f |
 | test.cpp:7:28:7:28 | p#0 |
 | test.cpp:7:31:7:33 | p#1 |

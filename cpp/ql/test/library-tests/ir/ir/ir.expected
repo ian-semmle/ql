@@ -2844,8 +2844,8 @@ printIRGraphInstructions
 | Nullptr() -> void | 0 | 15 | ReturnVoid | ir.cpp:496:6:496:12 |
 | Nullptr() -> void | 0 | 16 | UnmodeledUse | ir.cpp:496:6:496:12 |
 | Nullptr() -> void | 0 | 17 | ExitFunction | ir.cpp:496:6:496:12 |
-| Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 0 | EnterFunction | ir.cpp:715:12:715:15 |
-| Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 1 | UnmodeledDefinition | ir.cpp:715:12:715:15 |
+| Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 0 | EnterFunction | ir.cpp:715:12:715:12 |
+| Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 1 | UnmodeledDefinition | ir.cpp:715:12:715:12 |
 | Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 2 | InitializeParameter[x] | ir.cpp:715:19:715:19 |
 | Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 3 | VariableAddress[x] | ir.cpp:715:19:715:19 |
 | Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 4 | Store | ir.cpp:715:19:715:19 |
@@ -2855,10 +2855,10 @@ printIRGraphInstructions
 | Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 8 | VariableAddress[#return] | ir.cpp:716:5:716:15 |
 | Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 9 | Constant[0] | ir.cpp:716:12:716:14 |
 | Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 10 | Store | ir.cpp:716:12:716:14 |
-| Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 11 | VariableAddress[#return] | ir.cpp:715:12:715:15 |
-| Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 12 | ReturnValue | ir.cpp:715:12:715:15 |
-| Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 13 | UnmodeledUse | ir.cpp:715:12:715:15 |
-| Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 14 | ExitFunction | ir.cpp:715:12:715:15 |
+| Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 11 | VariableAddress[#return] | ir.cpp:715:12:715:12 |
+| Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 12 | ReturnValue | ir.cpp:715:12:715:12 |
+| Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 13 | UnmodeledUse | ir.cpp:715:12:715:12 |
+| Outer<long>::Func<void *, char>(void *, char) -> long | 0 | 14 | ExitFunction | ir.cpp:715:12:715:12 |
 | Parameters(int, int) -> int | 0 | 0 | EnterFunction | ir.cpp:235:5:235:14 |
 | Parameters(int, int) -> int | 0 | 1 | UnmodeledDefinition | ir.cpp:235:5:235:14 |
 | Parameters(int, int) -> int | 0 | 2 | InitializeParameter[x] | ir.cpp:235:20:235:20 |
