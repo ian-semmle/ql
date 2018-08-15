@@ -2,21 +2,21 @@ import semmle.code.cpp.Location
 private import semmle.code.cpp.Enclosing
 private import semmle.code.cpp.internal.Type
 
-cached @element resolveElement(@element e) {
+@element resolveElement(@element e) {
   if isClass(e)
   then result = resolve(e)
   else result = e
 }
 
-cached Element mkElement(@element e) {
+Element mkElement(@element e) {
   result = resolveElement(e)
 }
 
-cached @element unresolveElement(Element e) {
+@element unresolveElement(Element e) {
   resolveElement(result) = e
 }
 
-cached @element underlyingElement(Element e) {
+@element underlyingElement(Element e) {
   result = e
 }
 
